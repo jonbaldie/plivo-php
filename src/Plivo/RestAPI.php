@@ -117,6 +117,7 @@ class RestAPI
                 ]
             );
         }
+
         $responseData = json_decode($response->getBody(), true);
         $status = $response->getStatusCode();
 

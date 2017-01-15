@@ -41,16 +41,9 @@ class Element
      */
     public function __construct($body = '', $attributes = [])
     {
-        $this->attributes = $attributes;
-
-        if ((!$attributes) || ($attributes === null)) {
-            $this->attributes = [];
-        }
-
-        $this->name = preg_replace('/^' . __NAMESPACE__ . '\\\\/', '', get_class($this));
-        //$this->name = get_class($this);
-
         $this->body = $body;
+        $this->attributes = $attributes;
+        $this->name = get_class($this);
 
         foreach ($this->attributes as $key => $value) {
             if (!in_array($key, $this->valid_attributes)) {
@@ -283,9 +276,7 @@ class Element
      */
     public function toXML($header = false)
     {
-        if (!(isset($xmlstr))) {
-            $xmlstr = '';
-        }
+        $xmlstr = '';
 
         if ($this->body) {
             $xmlstr .= "<" . $this->getName() . ">" . htmlspecialchars($this->body) . "</" . $this->getName() . ">";
