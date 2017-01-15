@@ -2,9 +2,19 @@
 
 namespace Plivo;
 
+/**
+ * Class Dial
+ * @package Plivo
+ */
 class Dial extends Element
 {
+    /**
+     * @var array
+     */
     protected $nestables = ['Number', 'User'];
+    /**
+     * @var array
+     */
     protected $valid_attributes = [
         'action',
         'method',
@@ -24,7 +34,11 @@ class Dial extends Element
         'sipHeaders',
     ];
 
-    function __construct($attributes = [])
+    /**
+     * Dial constructor.
+     * @param array $attributes
+     */
+    public function __construct($attributes = [])
     {
         parent::__construct(null, $attributes);
     }

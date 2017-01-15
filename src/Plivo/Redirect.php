@@ -1,23 +1,34 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jon
- * Date: 16/08/2016
- * Time: 10:15
- */
 
 namespace Plivo;
 
+/**
+ * Class Redirect
+ * @package Plivo
+ */
 class Redirect extends Element
 {
+    /**
+     * @var array
+     */
     protected $nestables = [];
+    /**
+     * @var array
+     */
     protected $valid_attributes = ['method'];
 
-    function __construct($body, $attributes = [])
+    /**
+     * Redirect constructor.
+     * @param string $body
+     * @param array $attributes
+     * @throws PlivoError
+     */
+    public function __construct($body, $attributes = [])
     {
-        parent::__construct($body, $attributes);
         if (!$body) {
             throw new PlivoError("No url set for " . $this->getName());
         }
+
+        parent::__construct($body, $attributes);
     }
 }

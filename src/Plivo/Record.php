@@ -2,9 +2,19 @@
 
 namespace Plivo;
 
+/**
+ * Class Record
+ * @package Plivo
+ */
 class Record extends Element
 {
+    /**
+     * @var array
+     */
     protected $nestables = [];
+    /**
+     * @var array
+     */
     protected $valid_attributes = [
         'action',
         'method',
@@ -23,7 +33,11 @@ class Record extends Element
         'transcriptionMethod',
     ];
 
-    function __construct($attributes = [])
+    /**
+     * Record constructor.
+     * @param array $attributes
+     */
+    public function __construct($attributes = [])
     {
         parent::__construct(null, $attributes);
     }

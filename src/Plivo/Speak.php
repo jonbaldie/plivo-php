@@ -2,18 +2,35 @@
 
 namespace Plivo;
 
+/**
+ * Class Speak
+ * @package Plivo
+ */
 class Speak extends Element
 {
+    /**
+     * @var array
+     */
     protected $nestables = [];
+    /**
+     * @var array
+     */
     protected $valid_attributes = ['voice', 'language', 'loop'];
 
-    function __construct($body, $attributes = [])
+    /**
+     * Speak constructor.
+     * @param string $body
+     * @param array $attributes
+     * @throws PlivoError
+     */
+    public function __construct($body, $attributes = [])
     {
         if (!$body) {
             throw new PlivoError("No text set for " . $this->getName());
-        } else {
-            $body = mb_encode_numericentity($body, [0x80, 0xffff, 0, 0xffff]);
         }
+
+        $body = mb_encode_numericentity($body, [0x80, 0xffff, 0, 0xffff]);
+
         parent::__construct($body, $attributes);
     }
 }

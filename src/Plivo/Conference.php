@@ -2,9 +2,19 @@
 
 namespace Plivo;
 
+/**
+ * Class Conference
+ * @package Plivo
+ */
 class Conference extends Element
 {
+    /**
+     * @var array
+     */
     protected $nestables = [];
+    /**
+     * @var array
+     */
     protected $valid_attributes = [
         'muted',
         'beep',
@@ -33,11 +43,18 @@ class Conference extends Element
         'relayDTMF',
     ];
 
-    function __construct($body, $attributes = [])
+    /**
+     * Conference constructor.
+     * @param string $body
+     * @param array $attributes
+     * @throws PlivoError
+     */
+    public function __construct($body, $attributes = [])
     {
-        parent::__construct($body, $attributes);
         if (!$body) {
             throw new PlivoError("No conference name set for " . $this->getName());
         }
+
+        parent::__construct($body, $attributes);
     }
 }

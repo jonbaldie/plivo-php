@@ -2,8 +2,15 @@
 
 namespace Plivo;
 
+/**
+ * Class Response
+ * @package Plivo
+ */
 class Response extends Element
 {
+    /**
+     * @var array
+     */
     protected $nestables = [
         'Speak',
         'Play',
@@ -19,15 +26,20 @@ class Response extends Element
         'Message',
     ];
 
-    function __construct()
+    /**
+     * Response constructor.
+     */
+    public function __construct()
     {
         parent::__construct(null);
     }
 
+    /**
+     * @param bool $header
+     * @return mixed
+     */
     public function toXML($header = false)
     {
-        $xml = parent::toXML(true);
-
-        return $xml;
+        return parent::toXML(true);
     }
 }
